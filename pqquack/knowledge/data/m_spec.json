@@ -1,0 +1,1342 @@
+{
+  "source": "PowerQueryLanguageSpecification.pdf",
+  "available": true,
+  "note": "Function lists are extracted from PDF text and may contain minor concatenation artifacts. Authoritative for library coverage and access/transformation classification, not per-function semantics.",
+  "libraries": {
+    "Table": 125,
+    "List": 77,
+    "Date": 66,
+    "Number": 56,
+    "Text": 48,
+    "DateTime": 39,
+    "Value": 30,
+    "Type": 26,
+    "DateTimeZone": 23,
+    "Record": 21,
+    "BinaryFormat": 21,
+    "Binary": 18,
+    "Cube": 17,
+    "Duration": 12,
+    "Splitter": 12,
+    "Time": 9,
+    "Function": 7,
+    "Combiner": 6,
+    "PercentileMode": 6,
+    "SapHanaRangeOperator": 6,
+    "Comparer": 5,
+    "AzureStorage": 5,
+    "BinaryOccurrence": 5,
+    "Diagnostics": 5,
+    "Lines": 5,
+    "RowExpression": 5,
+    "LimitClauseKind": 5,
+    "Expression": 4,
+    "Web": 4,
+    "SapHanaDistribution": 4,
+    "BinaryEncoding": 4,
+    "ItemExpression": 4,
+    "RankKind": 4,
+    "Uri": 4,
+    "SapBusinessWarehouseExecutionMode": 4,
+    "Logical": 3,
+    "Character": 3,
+    "Csv": 3,
+    "Excel": 3,
+    "HdInsight": 3,
+    "Odbc": 3,
+    "SharePoint": 3,
+    "Compute": 3,
+    "BufferMode": 3,
+    "MyTable": 3,
+    "SqlExpression": 3,
+    "AccessControlEntry": 2,
+    "AdoDotNet": 2,
+    "AnalysisServices": 2,
+    "DeltaLake": 2,
+    "File": 2,
+    "Folder": 2,
+    "Hdfs": 2,
+    "Identity": 2,
+    "Json": 2,
+    "OleDb": 2,
+    "Salesforce": 2,
+    "Sql": 2,
+    "Xml": 2,
+    "Message": 2,
+    "PERCENTILE": 2,
+    "Replacer": 2,
+    "Geography": 2,
+    "Geometry": 2,
+    "Action": 2,
+    "DirectQueryCapabilities": 2,
+    "Progress": 2,
+    "Variable": 2,
+    "AccessControlKind": 2,
+    "Error": 1,
+    "Embedded": 1,
+    "Byte": 1,
+    "Int8": 1,
+    "Int16": 1,
+    "Int32": 1,
+    "Int64": 1,
+    "Single": 1,
+    "Double": 1,
+    "Decimal": 1,
+    "Currency": 1,
+    "Percentage": 1,
+    "Guid": 1,
+    "Access": 1,
+    "ActiveDirectory": 1,
+    "AdobeAnalytics": 1,
+    "ADO": 1,
+    "Cdm": 1,
+    "DB2": 1,
+    "Essbase": 1,
+    "Exchange": 1,
+    "GoogleAnalytics": 1,
+    "Html": 1,
+    "IdentityProvider": 1,
+    "Informix": 1,
+    "MySQL": 1,
+    "OData": 1,
+    "Oracle": 1,
+    "Pdf": 1,
+    "PostgreSQL": 1,
+    "RData": 1,
+    "SapBusinessWarehouse": 1,
+    "SapHana": 1,
+    "Soda": 1,
+    "Sybase": 1,
+    "Teradata": 1,
+    "WebAction": 1,
+    "FabricAI": 1,
+    "ODataOmitValues": 1,
+    "Response": 1,
+    "Content": 1,
+    "Culture": 1,
+    "GeographyPoint": 1,
+    "GeometryPoint": 1,
+    "Tables": 1,
+    "Module": 1,
+    "Graph": 1,
+    "TimeZone": 1
+  },
+  "functions": {
+    "ADO": [
+      "ADO.NET"
+    ],
+    "Access": [
+      "Access.Database"
+    ],
+    "AccessControlEntry": [
+      "AccessControlEntry.ConditionToIdentities",
+      "AccessControlEntry.ConditionToIdentitiesReturns"
+    ],
+    "AccessControlKind": [
+      "AccessControlKind.Allow",
+      "AccessControlKind.Deny"
+    ],
+    "Action": [
+      "Action.WithErrorContext",
+      "Action.WithErrorContextThis"
+    ],
+    "ActiveDirectory": [
+      "ActiveDirectory.Domains"
+    ],
+    "AdoDotNet": [
+      "AdoDotNet.DataSource",
+      "AdoDotNet.Query"
+    ],
+    "AdobeAnalytics": [
+      "AdobeAnalytics.Cubes"
+    ],
+    "AnalysisServices": [
+      "AnalysisServices.Database",
+      "AnalysisServices.Databases"
+    ],
+    "AzureStorage": [
+      "AzureStorage.BlobContents",
+      "AzureStorage.Blobs",
+      "AzureStorage.DataLake",
+      "AzureStorage.DataLakeContents",
+      "AzureStorage.Tables"
+    ],
+    "Binary": [
+      "Binary.ApproximateLength",
+      "Binary.ApproximateLengthReturns",
+      "Binary.Buffer",
+      "Binary.Combine",
+      "Binary.Compress",
+      "Binary.Decompress",
+      "Binary.From",
+      "Binary.FromList",
+      "Binary.FromText",
+      "Binary.InferContentType",
+      "Binary.Length",
+      "Binary.Range",
+      "Binary.Split",
+      "Binary.ToList",
+      "Binary.ToText",
+      "Binary.View",
+      "Binary.ViewError",
+      "Binary.ViewFunction"
+    ],
+    "BinaryEncoding": [
+      "BinaryEncoding.Base64",
+      "BinaryEncoding.Base640",
+      "BinaryEncoding.Hex",
+      "BinaryEncoding.Utf8"
+    ],
+    "BinaryFormat": [
+      "BinaryFormat.Binary",
+      "BinaryFormat.Byte",
+      "BinaryFormat.ByteOrder",
+      "BinaryFormat.ByteOrderReturns",
+      "BinaryFormat.Choice",
+      "BinaryFormat.Decimal",
+      "BinaryFormat.Double",
+      "BinaryFormat.Group",
+      "BinaryFormat.Length",
+      "BinaryFormat.List",
+      "BinaryFormat.Null",
+      "BinaryFormat.Record",
+      "BinaryFormat.SignedInteger16",
+      "BinaryFormat.SignedInteger32",
+      "BinaryFormat.SignedInteger64",
+      "BinaryFormat.Single",
+      "BinaryFormat.Text",
+      "BinaryFormat.Transform",
+      "BinaryFormat.UnsignedInteger16",
+      "BinaryFormat.UnsignedInteger32",
+      "BinaryFormat.UnsignedInteger64"
+    ],
+    "BinaryOccurrence": [
+      "BinaryOccurrence.Optional",
+      "BinaryOccurrence.Optional0",
+      "BinaryOccurrence.Repeating",
+      "BinaryOccurrence.Repeating2",
+      "BinaryOccurrence.Required"
+    ],
+    "BufferMode": [
+      "BufferMode.Delayed",
+      "BufferMode.Eager",
+      "BufferMode.Eager1"
+    ],
+    "Byte": [
+      "Byte.From"
+    ],
+    "Cdm": [
+      "Cdm.Contents"
+    ],
+    "Character": [
+      "Character.FromNumber",
+      "Character.FromNumberConverts",
+      "Character.ToNumber"
+    ],
+    "Combiner": [
+      "Combiner.CombineTextByDelimiter",
+      "Combiner.CombineTextByEachDelimiter",
+      "Combiner.CombineTextByEachDelimiterReturns",
+      "Combiner.CombineTextByLengths",
+      "Combiner.CombineTextByPositions",
+      "Combiner.CombineTextByRanges"
+    ],
+    "Comparer": [
+      "Comparer.Equals",
+      "Comparer.FromCulture",
+      "Comparer.Ordinal",
+      "Comparer.OrdinalIgnoreCase",
+      "Comparer.OrdinalIgnoreCaseReturns"
+    ],
+    "Compute": [
+      "Compute.Score",
+      "Compute.ScoreScalar",
+      "Compute.ScoreVector"
+    ],
+    "Content": [
+      "Content.Encoding"
+    ],
+    "Csv": [
+      "Csv.Document",
+      "Csv.PotentialDelimiter",
+      "Csv.PotentialPositions"
+    ],
+    "Cube": [
+      "Cube.AddAndExpandDimensionColumn",
+      "Cube.AddAndExpandDimensionColumnMerges",
+      "Cube.AddMeasureColumn",
+      "Cube.ApplyParameter",
+      "Cube.AttributeMemberId",
+      "Cube.AttributeMemberProperty",
+      "Cube.CollapseAndRemoveColumns",
+      "Cube.Dimensions",
+      "Cube.DisplayFolders",
+      "Cube.MeasureProperties",
+      "Cube.MeasureProperty",
+      "Cube.Measures",
+      "Cube.Parameters",
+      "Cube.Properties",
+      "Cube.PropertyKey",
+      "Cube.ReplaceDimensions",
+      "Cube.Transform"
+    ],
+    "Culture": [
+      "Culture.Current"
+    ],
+    "Currency": [
+      "Currency.From"
+    ],
+    "DB2": [
+      "DB2.Database"
+    ],
+    "Date": [
+      "Date.AddDays",
+      "Date.AddMonths",
+      "Date.AddQuarters",
+      "Date.AddWeeks",
+      "Date.AddYears",
+      "Date.Day",
+      "Date.DayOfWeek",
+      "Date.DayOfWeekName",
+      "Date.DayOfYear",
+      "Date.DaysInMonth",
+      "Date.EndOfDay",
+      "Date.EndOfMonth",
+      "Date.EndOfQuarter",
+      "Date.EndOfWeek",
+      "Date.EndOfYear",
+      "Date.From",
+      "Date.FromText",
+      "Date.IsInCurrentDay",
+      "Date.IsInCurrentMonth",
+      "Date.IsInCurrentMonthReturns",
+      "Date.IsInCurrentQuarter",
+      "Date.IsInCurrentQuarterReturns",
+      "Date.IsInCurrentWeek",
+      "Date.IsInCurrentYear",
+      "Date.IsInNextDay",
+      "Date.IsInNextMonth",
+      "Date.IsInNextNDays",
+      "Date.IsInNextNMonths",
+      "Date.IsInNextNMonthsIndicates",
+      "Date.IsInNextNQuarters",
+      "Date.IsInNextNQuartersIndicates",
+      "Date.IsInNextNWeeks",
+      "Date.IsInNextNYears",
+      "Date.IsInNextQuarter",
+      "Date.IsInNextWeek",
+      "Date.IsInNextYear",
+      "Date.IsInPreviousDay",
+      "Date.IsInPreviousMonth",
+      "Date.IsInPreviousMonthReturns",
+      "Date.IsInPreviousNDays",
+      "Date.IsInPreviousNDaysIndicates",
+      "Date.IsInPreviousNMonths",
+      "Date.IsInPreviousNMonthsIndicates",
+      "Date.IsInPreviousNQuarters",
+      "Date.IsInPreviousNQuartersIndicates",
+      "Date.IsInPreviousNWeeks",
+      "Date.IsInPreviousNYears",
+      "Date.IsInPreviousQuarter",
+      "Date.IsInPreviousQuarterReturns",
+      "Date.IsInPreviousWeek",
+      "Date.IsInPreviousYear",
+      "Date.IsInYearToDate",
+      "Date.IsLeapYear",
+      "Date.Month",
+      "Date.MonthName",
+      "Date.QuarterOfYear",
+      "Date.StartOfDay",
+      "Date.StartOfMonth",
+      "Date.StartOfQuarter",
+      "Date.StartOfWeek",
+      "Date.StartOfYear",
+      "Date.ToRecord",
+      "Date.ToText",
+      "Date.WeekOfMonth",
+      "Date.WeekOfYear",
+      "Date.Year"
+    ],
+    "DateTime": [
+      "DateTime.AddZone",
+      "DateTime.Date",
+      "DateTime.FixedLocalNow",
+      "DateTime.From",
+      "DateTime.FromFileTime",
+      "DateTime.FromText",
+      "DateTime.IsInCurrentHour",
+      "DateTime.IsInCurrentHourIndicates",
+      "DateTime.IsInCurrentMinute",
+      "DateTime.IsInCurrentMinuteIndicates",
+      "DateTime.IsInCurrentSecond",
+      "DateTime.IsInCurrentSecondIndicates",
+      "DateTime.IsInCurrentYear",
+      "DateTime.IsInNextHour",
+      "DateTime.IsInNextMinute",
+      "DateTime.IsInNextNHours",
+      "DateTime.IsInNextNHoursIndicates",
+      "DateTime.IsInNextNMinutes",
+      "DateTime.IsInNextNMinutesIndicates",
+      "DateTime.IsInNextNSeconds",
+      "DateTime.IsInNextNSecondsIndicates",
+      "DateTime.IsInNextSecond",
+      "DateTime.IsInPreviousHour",
+      "DateTime.IsInPreviousHourIndicates",
+      "DateTime.IsInPreviousMinute",
+      "DateTime.IsInPreviousMinuteIndicates",
+      "DateTime.IsInPreviousNHours",
+      "DateTime.IsInPreviousNHoursIndicates",
+      "DateTime.IsInPreviousNMinutes",
+      "DateTime.IsInPreviousNMinutesIndicates",
+      "DateTime.IsInPreviousNSeconds",
+      "DateTime.IsInPreviousNSecondsIndicates",
+      "DateTime.IsInPreviousSecond",
+      "DateTime.IsInPreviousSecondIndicates",
+      "DateTime.LocalNow",
+      "DateTime.LocalTime",
+      "DateTime.Time",
+      "DateTime.ToRecord",
+      "DateTime.ToText"
+    ],
+    "DateTimeZone": [
+      "DateTimeZone.FixedLocalNow",
+      "DateTimeZone.FixedLocalNowReturns",
+      "DateTimeZone.FixedUtcNow",
+      "DateTimeZone.FixedUtcNowReturns",
+      "DateTimeZone.From",
+      "DateTimeZone.FromFileTime",
+      "DateTimeZone.FromFileTimeReturns",
+      "DateTimeZone.FromText",
+      "DateTimeZone.LocalNow",
+      "DateTimeZone.LocalNowOn",
+      "DateTimeZone.LocalNowReturns",
+      "DateTimeZone.RemoveZone",
+      "DateTimeZone.SwitchZone",
+      "DateTimeZone.ToLocal",
+      "DateTimeZone.ToRecord",
+      "DateTimeZone.ToText",
+      "DateTimeZone.ToUtc",
+      "DateTimeZone.UtcNow",
+      "DateTimeZone.UtcNowReturns",
+      "DateTimeZone.ZoneHours",
+      "DateTimeZone.ZoneHoursGets",
+      "DateTimeZone.ZoneMinutes",
+      "DateTimeZone.ZoneMinutesGets"
+    ],
+    "Decimal": [
+      "Decimal.From"
+    ],
+    "DeltaLake": [
+      "DeltaLake.Metadata",
+      "DeltaLake.Table"
+    ],
+    "Diagnostics": [
+      "Diagnostics.ActivityId",
+      "Diagnostics.ActivityIdReturns",
+      "Diagnostics.CorrelationId",
+      "Diagnostics.CorrelationIdReturns",
+      "Diagnostics.Trace"
+    ],
+    "DirectQueryCapabilities": [
+      "DirectQueryCapabilities.From",
+      "DirectQueryCapabilities.FromThis"
+    ],
+    "Double": [
+      "Double.From"
+    ],
+    "Duration": [
+      "Duration.Days",
+      "Duration.From",
+      "Duration.FromText",
+      "Duration.Hours",
+      "Duration.Minutes",
+      "Duration.Seconds",
+      "Duration.ToRecord",
+      "Duration.ToText",
+      "Duration.TotalDays",
+      "Duration.TotalHours",
+      "Duration.TotalMinutes",
+      "Duration.TotalSeconds"
+    ],
+    "Embedded": [
+      "Embedded.Value"
+    ],
+    "Error": [
+      "Error.Record"
+    ],
+    "Essbase": [
+      "Essbase.Cubes"
+    ],
+    "Excel": [
+      "Excel.CurrentWorkbook",
+      "Excel.ShapeTable",
+      "Excel.Workbook"
+    ],
+    "Exchange": [
+      "Exchange.Contents"
+    ],
+    "Expression": [
+      "Expression.Constant",
+      "Expression.Error",
+      "Expression.Evaluate",
+      "Expression.Identifier"
+    ],
+    "FabricAI": [
+      "FabricAI.Prompt"
+    ],
+    "File": [
+      "File.Content",
+      "File.Contents"
+    ],
+    "Folder": [
+      "Folder.Contents",
+      "Folder.Files"
+    ],
+    "Function": [
+      "Function.From",
+      "Function.Invoke",
+      "Function.InvokeAfter",
+      "Function.InvokeWithErrorContext",
+      "Function.InvokeWithErrorContextThis",
+      "Function.IsDataSource",
+      "Function.ScalarVector"
+    ],
+    "Geography": [
+      "Geography.FromWellKnownText",
+      "Geography.ToWellKnownText"
+    ],
+    "GeographyPoint": [
+      "GeographyPoint.From"
+    ],
+    "Geometry": [
+      "Geometry.FromWellKnownText",
+      "Geometry.ToWellKnownText"
+    ],
+    "GeometryPoint": [
+      "GeometryPoint.From"
+    ],
+    "GoogleAnalytics": [
+      "GoogleAnalytics.Accounts"
+    ],
+    "Graph": [
+      "Graph.Nodes"
+    ],
+    "Guid": [
+      "Guid.From"
+    ],
+    "HdInsight": [
+      "HdInsight.Containers",
+      "HdInsight.Contents",
+      "HdInsight.Files"
+    ],
+    "Hdfs": [
+      "Hdfs.Contents",
+      "Hdfs.Files"
+    ],
+    "Html": [
+      "Html.Table"
+    ],
+    "Identity": [
+      "Identity.From",
+      "Identity.IsMemberOf"
+    ],
+    "IdentityProvider": [
+      "IdentityProvider.Default"
+    ],
+    "Informix": [
+      "Informix.Database"
+    ],
+    "Int16": [
+      "Int16.From"
+    ],
+    "Int32": [
+      "Int32.From"
+    ],
+    "Int64": [
+      "Int64.From"
+    ],
+    "Int8": [
+      "Int8.From"
+    ],
+    "ItemExpression": [
+      "ItemExpression.From",
+      "ItemExpression.FromReturns",
+      "ItemExpression.Item",
+      "ItemExpression.ItemAn"
+    ],
+    "Json": [
+      "Json.Document",
+      "Json.FromValue"
+    ],
+    "LimitClauseKind": [
+      "LimitClauseKind.AnsiSql20084",
+      "LimitClauseKind.Limit",
+      "LimitClauseKind.LimitOffset2",
+      "LimitClauseKind.None",
+      "LimitClauseKind.Top"
+    ],
+    "Lines": [
+      "Lines.FromBinary",
+      "Lines.FromBinaryConverts",
+      "Lines.FromText",
+      "Lines.ToBinary",
+      "Lines.ToText"
+    ],
+    "List": [
+      "List.Accumulate",
+      "List.AllTrue",
+      "List.Alternate",
+      "List.AnyTrue",
+      "List.Average",
+      "List.Buffer",
+      "List.Combine",
+      "List.ConformToPageReader",
+      "List.Contains",
+      "List.ContainsAll",
+      "List.ContainsAny",
+      "List.Count",
+      "List.Covariance",
+      "List.DateTimeZones",
+      "List.DateTimeZonesGenerates",
+      "List.DateTimes",
+      "List.Dates",
+      "List.Difference",
+      "List.Distinct",
+      "List.Durations",
+      "List.FindText",
+      "List.First",
+      "List.FirstN",
+      "List.Generate",
+      "List.InsertRange",
+      "List.Intersect",
+      "List.IsDistinct",
+      "List.IsEmpty",
+      "List.Last",
+      "List.LastN",
+      "List.MatchesAll",
+      "List.MatchesAny",
+      "List.Max",
+      "List.MaxN",
+      "List.Median",
+      "List.Min",
+      "List.MinN",
+      "List.Mode",
+      "List.Modes",
+      "List.NonNullCount",
+      "List.Numbers",
+      "List.Percentile",
+      "List.PercentileReturns",
+      "List.PositionOf",
+      "List.PositionOfAny",
+      "List.Positions",
+      "List.Product",
+      "List.Random",
+      "List.Range",
+      "List.RemoveFirstN",
+      "List.RemoveItems",
+      "List.RemoveLastN",
+      "List.RemoveMatchingItems",
+      "List.RemoveMatchingItemsRemoves",
+      "List.RemoveNulls",
+      "List.RemoveRange",
+      "List.Repeat",
+      "List.ReplaceMatchingItems",
+      "List.ReplaceMatchingItemsReplaces",
+      "List.ReplaceRange",
+      "List.ReplaceValue",
+      "List.Reverse",
+      "List.Select",
+      "List.Single",
+      "List.SingleOrDefault",
+      "List.SingleOrDefaultReturns",
+      "List.Skip",
+      "List.Sort",
+      "List.Split",
+      "List.StandardDeviation",
+      "List.StandardDeviationReturns",
+      "List.Sum",
+      "List.Times",
+      "List.Transform",
+      "List.TransformMany",
+      "List.Union",
+      "List.Zip"
+    ],
+    "Logical": [
+      "Logical.From",
+      "Logical.FromText",
+      "Logical.ToText"
+    ],
+    "Message": [
+      "Message.Format",
+      "Message.Parameters"
+    ],
+    "Module": [
+      "Module.Versions"
+    ],
+    "MySQL": [
+      "MySQL.Database"
+    ],
+    "MyTable": [
+      "MyTable.CustomerID",
+      "MyTable.Name",
+      "MyTable.Phone"
+    ],
+    "Number": [
+      "Number.Abs",
+      "Number.Acos",
+      "Number.Asin",
+      "Number.Atan",
+      "Number.Atan2",
+      "Number.BitwiseAnd",
+      "Number.BitwiseNot",
+      "Number.BitwiseOr",
+      "Number.BitwiseShiftLeft",
+      "Number.BitwiseShiftLeftReturns",
+      "Number.BitwiseShiftRight",
+      "Number.BitwiseShiftRightReturns",
+      "Number.BitwiseXor",
+      "Number.Combinations",
+      "Number.CombinationsReturns",
+      "Number.Cos",
+      "Number.Cosh",
+      "Number.Epsilon",
+      "Number.Exp",
+      "Number.Factorial",
+      "Number.From",
+      "Number.FromText",
+      "Number.IntegerDivide",
+      "Number.IntegerDivideDivides",
+      "Number.IsEven",
+      "Number.IsNaN",
+      "Number.IsOdd",
+      "Number.Ln",
+      "Number.Log",
+      "Number.Log10",
+      "Number.Mod",
+      "Number.NaN",
+      "Number.NegativeInfinity",
+      "Number.NegativeInfinityRepresents",
+      "Number.PI",
+      "Number.Permutations",
+      "Number.PermutationsReturns",
+      "Number.PositiveInfinity",
+      "Number.PositiveInfinityRepresents",
+      "Number.Power",
+      "Number.Random",
+      "Number.RandomBetween",
+      "Number.RandomBetweenReturns",
+      "Number.Round",
+      "Number.RoundAwayFromZero",
+      "Number.RoundAwayFromZeroReturns",
+      "Number.RoundDown",
+      "Number.RoundTowardZero",
+      "Number.RoundUp",
+      "Number.Sign",
+      "Number.Sin",
+      "Number.Sinh",
+      "Number.Sqrt",
+      "Number.Tan",
+      "Number.Tanh",
+      "Number.ToText"
+    ],
+    "OData": [
+      "OData.Feed"
+    ],
+    "ODataOmitValues": [
+      "ODataOmitValues.Nulls"
+    ],
+    "Odbc": [
+      "Odbc.DataSource",
+      "Odbc.InferOptions",
+      "Odbc.Query"
+    ],
+    "OleDb": [
+      "OleDb.DataSource",
+      "OleDb.Query"
+    ],
+    "Oracle": [
+      "Oracle.Database"
+    ],
+    "PERCENTILE": [
+      "PERCENTILE.EXC",
+      "PERCENTILE.INC"
+    ],
+    "Pdf": [
+      "Pdf.Tables"
+    ],
+    "Percentage": [
+      "Percentage.From"
+    ],
+    "PercentileMode": [
+      "PercentileMode.ExcelExc",
+      "PercentileMode.ExcelInc",
+      "PercentileMode.SqlCont",
+      "PercentileMode.SqlCont4",
+      "PercentileMode.SqlDisc",
+      "PercentileMode.SqlDisc3"
+    ],
+    "PostgreSQL": [
+      "PostgreSQL.Database"
+    ],
+    "Progress": [
+      "Progress.DataSourceProgress",
+      "Progress.DataSourceProgressThis"
+    ],
+    "RData": [
+      "RData.FromBinary"
+    ],
+    "RankKind": [
+      "RankKind.Competition",
+      "RankKind.Competition0",
+      "RankKind.Dense",
+      "RankKind.Ordinal"
+    ],
+    "Record": [
+      "Record.AddField",
+      "Record.Combine",
+      "Record.Field",
+      "Record.FieldCount",
+      "Record.FieldNames",
+      "Record.FieldNamesReturns",
+      "Record.FieldOrDefault",
+      "Record.FieldOrDefaultReturns",
+      "Record.FieldValues",
+      "Record.FromList",
+      "Record.FromListReturns",
+      "Record.FromTable",
+      "Record.HasFields",
+      "Record.RemoveFields",
+      "Record.RenameFields",
+      "Record.ReorderFields",
+      "Record.SelectFields",
+      "Record.SelectFieldsReturns",
+      "Record.ToList",
+      "Record.ToTable",
+      "Record.TransformFields"
+    ],
+    "Replacer": [
+      "Replacer.ReplaceText",
+      "Replacer.ReplaceValue"
+    ],
+    "Response": [
+      "Response.Status"
+    ],
+    "RowExpression": [
+      "RowExpression.Column",
+      "RowExpression.ColumnReturns",
+      "RowExpression.From",
+      "RowExpression.FromReturns",
+      "RowExpression.Row"
+    ],
+    "Salesforce": [
+      "Salesforce.Data",
+      "Salesforce.Reports"
+    ],
+    "SapBusinessWarehouse": [
+      "SapBusinessWarehouse.Cubes"
+    ],
+    "SapBusinessWarehouseExecutionMode": [
+      "SapBusinessWarehouseExecutionMode.BasXml64",
+      "SapBusinessWarehouseExecutionMode.BasXmlGzip65",
+      "SapBusinessWarehouseExecutionMode.DataStream",
+      "SapBusinessWarehouseExecutionMode.Typ"
+    ],
+    "SapHana": [
+      "SapHana.Database"
+    ],
+    "SapHanaDistribution": [
+      "SapHanaDistribution.All",
+      "SapHanaDistribution.Connection1",
+      "SapHanaDistribution.Off",
+      "SapHanaDistribution.Statement"
+    ],
+    "SapHanaRangeOperator": [
+      "SapHanaRangeOperator.Equals",
+      "SapHanaRangeOperator.GreaterThan",
+      "SapHanaRangeOperator.GreaterThanOrEquals2",
+      "SapHanaRangeOperator.LessThan",
+      "SapHanaRangeOperator.LessThanOrEquals3",
+      "SapHanaRangeOperator.NotEquals"
+    ],
+    "SharePoint": [
+      "SharePoint.Contents",
+      "SharePoint.Files",
+      "SharePoint.Tables"
+    ],
+    "Single": [
+      "Single.From"
+    ],
+    "Soda": [
+      "Soda.Feed"
+    ],
+    "Splitter": [
+      "Splitter.SplitByNothing",
+      "Splitter.SplitTextByAnyDelimiter",
+      "Splitter.SplitTextByCharacterTransition",
+      "Splitter.SplitTextByCharacterTransitionReturns",
+      "Splitter.SplitTextByDelimiter",
+      "Splitter.SplitTextByEachDelimiter",
+      "Splitter.SplitTextByLengths",
+      "Splitter.SplitTextByPositions",
+      "Splitter.SplitTextByRanges",
+      "Splitter.SplitTextByRepeatedLengths",
+      "Splitter.SplitTextByRepeatedLengthsReturns",
+      "Splitter.SplitTextByWhitespace"
+    ],
+    "Sql": [
+      "Sql.Database",
+      "Sql.Databases"
+    ],
+    "SqlExpression": [
+      "SqlExpression.SchemaFrom",
+      "SqlExpression.SchemaFromThis",
+      "SqlExpression.ToExpression"
+    ],
+    "Sybase": [
+      "Sybase.Database"
+    ],
+    "Table": [
+      "Table.AddColumn",
+      "Table.AddFuzzyClusterColumn",
+      "Table.AddFuzzyClusterColumnAdds",
+      "Table.AddIndexColumn",
+      "Table.AddJoinColumn",
+      "Table.AddKey",
+      "Table.AddRankColumn",
+      "Table.AddRankColumnAppends",
+      "Table.AggregateTableColumn",
+      "Table.AlternateRows",
+      "Table.ApproximateRowCount",
+      "Table.ApproximateRowCountReturns",
+      "Table.Buffer",
+      "Table.Column",
+      "Table.ColumnCount",
+      "Table.ColumnNames",
+      "Table.ColumnsOfType",
+      "Table.Combine",
+      "Table.CombineColumns",
+      "Table.CombineColumnsToRecord",
+      "Table.ConformToPageReader",
+      "Table.Contains",
+      "Table.ContainsAll",
+      "Table.ContainsAny",
+      "Table.DemoteHeaders",
+      "Table.Distinct",
+      "Table.DuplicateColumn",
+      "Table.ExpandListColumn",
+      "Table.ExpandRecordColumn",
+      "Table.ExpandTableColumn",
+      "Table.FillDown",
+      "Table.FillUp",
+      "Table.FilterWithDataTable",
+      "Table.FindText",
+      "Table.First",
+      "Table.FirstN",
+      "Table.FirstValue",
+      "Table.FromColumns",
+      "Table.FromColumnsCreates",
+      "Table.FromList",
+      "Table.FromPartitions",
+      "Table.FromRecords",
+      "Table.FromRows",
+      "Table.FromValue",
+      "Table.FuzzyGroup",
+      "Table.FuzzyJoin",
+      "Table.FuzzyNestedJoin",
+      "Table.Group",
+      "Table.HasColumns",
+      "Table.InsertRows",
+      "Table.IsDistinct",
+      "Table.IsEmpty",
+      "Table.Join",
+      "Table.Keys",
+      "Table.Last",
+      "Table.LastN",
+      "Table.MatchesAllRows",
+      "Table.MatchesAnyRows",
+      "Table.Max",
+      "Table.MaxN",
+      "Table.Min",
+      "Table.MinN",
+      "Table.NestedJoin",
+      "Table.Partition",
+      "Table.PartitionKey",
+      "Table.PartitionValues",
+      "Table.Pivot",
+      "Table.PositionOf",
+      "Table.PositionOfAny",
+      "Table.PrefixColumns",
+      "Table.Profile",
+      "Table.PromoteHeaders",
+      "Table.Range",
+      "Table.RemoveColumns",
+      "Table.RemoveFirstN",
+      "Table.RemoveLastN",
+      "Table.RemoveMatchingRows",
+      "Table.RemoveRows",
+      "Table.RemoveRowsWithErrors",
+      "Table.RemoveRowsWithErrorsReturns",
+      "Table.RenameColumns",
+      "Table.ReorderColumns",
+      "Table.Repeat",
+      "Table.ReplaceErrorValues",
+      "Table.ReplaceKeys",
+      "Table.ReplaceMatchingRows",
+      "Table.ReplacePartitionKey",
+      "Table.ReplaceRelationshipIdentity",
+      "Table.ReplaceRelationshipIdentityThis",
+      "Table.ReplaceRows",
+      "Table.ReplaceValue",
+      "Table.ReverseRows",
+      "Table.RowCount",
+      "Table.Schema",
+      "Table.SelectColumns",
+      "Table.SelectRows",
+      "Table.SelectRowsWithErrors",
+      "Table.SelectRowsWithErrorsReturns",
+      "Table.SingleRow",
+      "Table.Skip",
+      "Table.Sort",
+      "Table.Split",
+      "Table.SplitAt",
+      "Table.SplitColumn",
+      "Table.StopFolding",
+      "Table.StopFoldingPrevents",
+      "Table.ToColumns",
+      "Table.ToColumnsCreates",
+      "Table.ToList",
+      "Table.ToRecords",
+      "Table.ToRows",
+      "Table.TransformColumnNames",
+      "Table.TransformColumnNamesTransforms",
+      "Table.TransformColumnTypes",
+      "Table.TransformColumns",
+      "Table.TransformRows",
+      "Table.Transpose",
+      "Table.Unpivot",
+      "Table.UnpivotOtherColumns",
+      "Table.UnpivotOtherColumnsTranslates",
+      "Table.View",
+      "Table.ViewError",
+      "Table.ViewFunction",
+      "Table.WithErrorContext",
+      "Table.WithErrorContextThis"
+    ],
+    "Tables": [
+      "Tables.GetRelationships"
+    ],
+    "Teradata": [
+      "Teradata.Database"
+    ],
+    "Text": [
+      "Text.AfterDelimiter",
+      "Text.At",
+      "Text.BeforeDelimiter",
+      "Text.BeforeDelimiterReturns",
+      "Text.BetweenDelimiters",
+      "Text.BetweenDelimitersReturns",
+      "Text.Clean",
+      "Text.Combine",
+      "Text.Contains",
+      "Text.End",
+      "Text.EndsWith",
+      "Text.Format",
+      "Text.From",
+      "Text.FromBinary",
+      "Text.InferNumberType",
+      "Text.Insert",
+      "Text.Length",
+      "Text.Lower",
+      "Text.Middle",
+      "Text.MiddleReturns",
+      "Text.NewGuid",
+      "Text.PadEnd",
+      "Text.PadStart",
+      "Text.PositionOf",
+      "Text.PositionOfAny",
+      "Text.PositionOfAnyReturns",
+      "Text.Proper",
+      "Text.Range",
+      "Text.RangeReturns",
+      "Text.Remove",
+      "Text.RemoveRange",
+      "Text.RemoveRangeRemoves",
+      "Text.Repeat",
+      "Text.Replace",
+      "Text.ReplaceRange",
+      "Text.ReplaceRangeReplaces",
+      "Text.Reverse",
+      "Text.Select",
+      "Text.Split",
+      "Text.SplitAny",
+      "Text.Start",
+      "Text.StartsWith",
+      "Text.ToBinary",
+      "Text.ToList",
+      "Text.Trim",
+      "Text.TrimEnd",
+      "Text.TrimStart",
+      "Text.Upper"
+    ],
+    "Time": [
+      "Time.EndOfHour",
+      "Time.From",
+      "Time.FromText",
+      "Time.Hour",
+      "Time.Minute",
+      "Time.Second",
+      "Time.StartOfHour",
+      "Time.ToRecord",
+      "Time.ToText"
+    ],
+    "TimeZone": [
+      "TimeZone.Current"
+    ],
+    "Type": [
+      "Type.AddTableKey",
+      "Type.ClosedRecord",
+      "Type.Facets",
+      "Type.ForFunction",
+      "Type.ForList",
+      "Type.ForRecord",
+      "Type.FunctionParameters",
+      "Type.FunctionRequiredParameters",
+      "Type.FunctionRequiredParametersReturns",
+      "Type.FunctionReturn",
+      "Type.Is",
+      "Type.IsNullable",
+      "Type.IsOpenRecord",
+      "Type.ListItem",
+      "Type.NonNullable",
+      "Type.OpenRecord",
+      "Type.RecordFields",
+      "Type.ReplaceFacets",
+      "Type.ReplaceTableKeys",
+      "Type.ReplaceTablePartitionKey",
+      "Type.TableColumn",
+      "Type.TableKeys",
+      "Type.TablePartitionKey",
+      "Type.TableRow",
+      "Type.TableSchema",
+      "Type.Union"
+    ],
+    "Uri": [
+      "Uri.BuildQueryString",
+      "Uri.Combine",
+      "Uri.EscapeDataString",
+      "Uri.Parts"
+    ],
+    "Value": [
+      "Value.Add",
+      "Value.Alternates",
+      "Value.As",
+      "Value.Compare",
+      "Value.Divide",
+      "Value.Equals",
+      "Value.Expression",
+      "Value.Firewall",
+      "Value.FromText",
+      "Value.Is",
+      "Value.Lineage",
+      "Value.Metadata",
+      "Value.Multiply",
+      "Value.NativeQuery",
+      "Value.NativeQueryEvaluates",
+      "Value.NullableEquals",
+      "Value.NullableEqualsReturns",
+      "Value.Optimize",
+      "Value.RemoveMetadata",
+      "Value.RemoveMetadataRemoves",
+      "Value.ReplaceMetadata",
+      "Value.ReplaceMetadataReplaces",
+      "Value.ReplaceType",
+      "Value.Subtract",
+      "Value.Traits",
+      "Value.VersionIdentity",
+      "Value.VersionIdentityReturns",
+      "Value.Versions",
+      "Value.ViewError",
+      "Value.ViewFunction"
+    ],
+    "Variable": [
+      "Variable.Value",
+      "Variable.ValueOrDefault"
+    ],
+    "Web": [
+      "Web.BrowserContents",
+      "Web.Contents",
+      "Web.Headers",
+      "Web.Page"
+    ],
+    "WebAction": [
+      "WebAction.Request"
+    ],
+    "Xml": [
+      "Xml.Document",
+      "Xml.Tables"
+    ]
+  },
+  "enumerations": {
+    "ByteOrder": [
+      "ByteOrder.BigEndian"
+    ],
+    "Compression": [
+      "Compression.Brotli",
+      "Compression.Deflate",
+      "Compression.GZip",
+      "Compression.None",
+      "Compression.Snappy",
+      "Compression.Zstandard"
+    ],
+    "CsvStyle": [
+      "CsvStyle.QuoteAfterDelimiter",
+      "CsvStyle.QuoteAlways"
+    ],
+    "Day": [
+      "Day.Friday",
+      "Day.Monday",
+      "Day.Saturday",
+      "Day.Sunday",
+      "Day.Thursday",
+      "Day.Tuesday",
+      "Day.Wednesday"
+    ],
+    "ExtraValues": [
+      "ExtraValues.Error",
+      "ExtraValues.Ignore",
+      "ExtraValues.List"
+    ],
+    "GroupKind": [
+      "GroupKind.Global",
+      "GroupKind.Local"
+    ],
+    "JoinAlgorithm": [
+      "JoinAlgorithm.LeftHash",
+      "JoinAlgorithm.LeftIndex",
+      "JoinAlgorithm.SortMerge"
+    ],
+    "JoinKind": [
+      "JoinKind.FullOuter",
+      "JoinKind.Inner",
+      "JoinKind.LeftAnti",
+      "JoinKind.LeftOuter",
+      "JoinKind.LeftSemi",
+      "JoinKind.RightAnti",
+      "JoinKind.RightOuter",
+      "JoinKind.RightSemi"
+    ],
+    "JoinSide": [
+      "JoinSide.Left",
+      "JoinSide.Right"
+    ],
+    "MissingField": [
+      "MissingField.Error",
+      "MissingField.Ignore",
+      "MissingField.UseNull"
+    ],
+    "Occurrence": [
+      "Occurrence.All",
+      "Occurrence.First",
+      "Occurrence.Last",
+      "Occurrence.Required"
+    ],
+    "Order": [
+      "Order.Ascending",
+      "Order.CustomerID",
+      "Order.Descending",
+      "Order.Name",
+      "Order.OrderID",
+      "Order.Price",
+      "Order.TenantID"
+    ],
+    "Precision": [
+      "Precision.Decimal",
+      "Precision.Double"
+    ],
+    "QuoteStyle": [
+      "QuoteStyle.Csv",
+      "QuoteStyle.None"
+    ],
+    "RelativePosition": [
+      "RelativePosition.FromEnd",
+      "RelativePosition.FromStart"
+    ],
+    "RoundingMode": [
+      "RoundingMode.AwayFromZero",
+      "RoundingMode.Down",
+      "RoundingMode.ToEven",
+      "RoundingMode.TowardZero",
+      "RoundingMode.Up"
+    ],
+    "TextEncoding": [
+      "TextEncoding.Ascii",
+      "TextEncoding.Unicode",
+      "TextEncoding.Windows"
+    ],
+    "TraceLevel": [
+      "TraceLevel.Critical",
+      "TraceLevel.Error",
+      "TraceLevel.Information",
+      "TraceLevel.Verbose",
+      "TraceLevel.Warning"
+    ],
+    "WebMethod": [
+      "WebMethod.Delete",
+      "WebMethod.Get",
+      "WebMethod.Head",
+      "WebMethod.Patch",
+      "WebMethod.Post",
+      "WebMethod.Put"
+    ]
+  },
+  "access_libraries": [
+    "Access",
+    "ActiveDirectory",
+    "AnalysisServices",
+    "AzureStorage",
+    "Csv",
+    "Cube",
+    "DB2",
+    "Excel",
+    "Exchange",
+    "File",
+    "Folder",
+    "Hdfs",
+    "Informix",
+    "Json",
+    "MySQL",
+    "OData",
+    "Odbc",
+    "OleDb",
+    "Oracle",
+    "PostgreSQL",
+    "Salesforce",
+    "SapBusinessWarehouse",
+    "SapHana",
+    "SharePoint",
+    "Sql",
+    "Sybase",
+    "Teradata",
+    "Web",
+    "Xml"
+  ],
+  "type_tokens": {
+    "text": 1322,
+    "number": 1575,
+    "Int64.Type": 16,
+    "Int32.Type": 6,
+    "Int16.Type": 6,
+    "Int8.Type": 6,
+    "date": 2137,
+    "datetime": 840,
+    "datetimezone": 284,
+    "time": 1702,
+    "duration": 501,
+    "logical": 295,
+    "binary": 380,
+    "any": 732,
+    "Currency.Type": 8,
+    "Percentage.Type": 4
+  },
+  "function_count": 819
+}

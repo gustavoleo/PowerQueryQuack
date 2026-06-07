@@ -78,8 +78,28 @@ confidence score reflects it.
   `read_json_auto`, `read_xlsx`) in preference order Parquet → JSON → CSV → XLSX
   (goal section 10).
 
-## Source of truth
+## Knowledge cache (Phase 1)
 
-These rules are derived from `CODEX_GOAL.md` and the cached knowledge layer
-extracted from `PowerQueryLanguageSpecification.pdf` and `agent-skills-main.zip`.
-The Phase 1 extractor expands this document with concrete, citable M semantics.
+These rules are derived from `CODEX_GOAL.md` and a **committed knowledge cache**
+extracted once from the repo assets:
+
+- `pqquack/knowledge/data/m_spec.json` — from `PowerQueryLanguageSpecification.pdf`:
+  the M standard library catalogued by library (~117 libraries, ~819 functions),
+  M enumerations with members (e.g. `JoinKind.Inner`, `JoinKind.LeftOuter`),
+  type-token frequencies, and a classification of **access/connector** libraries
+  (`Sql`, `Web`, `Excel`, `SharePoint`, …) vs transformation libraries.
+- `pqquack/knowledge/data/duckdb_skills.json` — from `agent-skills-main.zip`:
+  the MotherDuck skill catalog (18 skills), DuckDB-native constructs to prefer
+  (`GROUP BY ALL`, `QUALIFY`, `UNION BY NAME`, `EXCLUDE`, `REPLACE`, `arg_max`),
+  and native readers in preference order.
+
+Runtime reads only this JSON via `pqquack.knowledge.KnowledgeStore` (with safe
+empty fallback). Regenerate after changing an asset:
+
+```bash
+python -m pqquack.knowledge.build
+```
+
+The access-library classification directly powers the connector-isolation rule
+(see `docs/custom-connector-policy.md`): `KnowledgeStore.is_access_function(...)`
+identifies source-acquisition functions that must never drive transformations.

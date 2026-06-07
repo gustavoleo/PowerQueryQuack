@@ -142,7 +142,7 @@ The goal forbids re-sending whole docs to the model. So Phase 1 produces a
 
 Each phase is independently shippable and test-gated. ✅ = done, 🔵 = in progress, ⬜ = todo.
 
-### Phase 0 — Scaffolding + docs  *(Milestone 1)*  ⬜
+### Phase 0 — Scaffolding + docs  *(Milestone 1)*  ✅
 - Python project: `pyproject.toml`, `pqquack/` package skeleton, `ruff` + `pytest` config.
 - `requirements`/deps: `fastapi`, `uvicorn`, `duckdb`, `pypdf`, `pydantic`, `anthropic` (fallback), `pytest`, `ruff`.
 - Docs per goal §24: `README.md`, `docs/architecture.md`, `docs/conversion-rules.md`,
@@ -151,10 +151,11 @@ Each phase is independently shippable and test-gated. ✅ = done, 🔵 = in prog
 - `SessionStart` hook so web sessions can run tests/linters (see `session-start-hook` skill).
 - **Exit criteria:** `pytest` runs green (even if near-empty), CI passes, docs stubs in place.
 
-### Phase 1 — Knowledge extraction layer  ⬜
-- `extract_spec.py` + `extract_skills.py` producing cached JSON; `store.py` accessor.
-- Document extracted rules in `docs/conversion-rules.md`.
-- **Exit:** knowledge JSON committed; tests assert key M functions/types and DuckDB conventions are present; graceful fallback when an asset can't be parsed.
+### Phase 1 — Knowledge extraction layer  ✅
+- `extract_spec.py` + `extract_skills.py` + `build.py` produce committed JSON; `store.py` accessor with convenience queries.
+- M catalog (~117 libraries / ~819 functions), enumerations, type tokens, access/connector-library classification; MotherDuck skill catalog + native constructs/readers.
+- Documented in `docs/conversion-rules.md`.
+- **Exit met:** knowledge JSON committed; tests assert key M functions/enums/access-libs and DuckDB conventions are present; extractors fall back safely on missing/unreadable assets. Regenerate via `python -m pqquack.knowledge.build`.
 
 ### Phase 2 — M parser + dependency graph + circular detection  ⬜
 - Lexer/parser for the M subset we support → AST; `ingest` splits About exports into named queries.

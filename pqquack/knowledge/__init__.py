@@ -9,6 +9,7 @@ Phase 1 implements ``extract_spec`` / ``extract_skills``; :mod:`.store` provides
 read access with a graceful empty-fallback today.
 """
 
+from pqquack.knowledge import extract_skills, extract_spec
 from pqquack.knowledge.store import KnowledgeStore
 
-__all__ = ["KnowledgeStore"]
+__all__ = ["KnowledgeStore", "extract_skills", "extract_spec"]

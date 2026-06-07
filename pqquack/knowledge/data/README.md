@@ -7,3 +7,9 @@ Generated, committed JSON produced by the Phase 1 extractors:
 
 Runtime reads only these files (see `pqquack/knowledge/store.py`). They are
 intentionally committed so no PDF/zip parsing happens at request time.
+
+Regenerate after changing either asset:
+
+```bash
+python -m pqquack.knowledge.build
+```
