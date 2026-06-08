@@ -78,6 +78,29 @@ confidence score reflects it.
   `read_json_auto`, `read_xlsx`) in preference order Parquet → JSON → CSV → XLSX
   (goal section 10).
 
+## Engine coverage (Phase 3)
+
+Implemented deterministically today (`pqquack.convert`):
+
+| M function | Status |
+|---|---|
+| `Table.SelectRows` | ✅ WHERE (via the M expression translator) |
+| `Table.SelectColumns` / `Table.RemoveColumns` | ✅ projection / `EXCLUDE` |
+| `Table.RenameColumns` | ✅ aliases (known schema) / `RENAME` |
+| `Table.TransformColumnTypes` | ✅ `TRY_CAST` / `REPLACE` |
+| `Table.AddColumn` | ✅ derived column |
+| `Table.Distinct`, `Table.Sort` | ✅ `DISTINCT`, `ORDER BY` |
+| `Table.Group` | ✅ `GROUP BY` (`List.Sum`→SUM, `Table.RowCount`→COUNT(*), …) |
+| `Table.Combine` | ✅ `UNION ALL` |
+| `Table.NestedJoin` / `Table.ExpandTableColumn` | ⚠️ flat JOIN + passthrough (verify expanded columns) |
+| `Table.Buffer`, `Table.PromoteHeaders` | ✅ no-op passthrough |
+| `Table.Pivot` / `Table.Unpivot` / `Table.FillDown` / `Table.FillUp` | ⛔ flagged unsupported → Phase 5 LLM fallback |
+
+Anything the rules or expression translator cannot map confidently is flagged as
+`UNSUPPORTED` in the SQL and recorded in `ConversionResult.unsupported` — never
+guessed. Generated SQL is checked against a **forbidden-construct guard** so temp
+tables and procedural SQL can never appear.
+
 ## Knowledge cache (Phase 1)
 
 These rules are derived from `CODEX_GOAL.md` and a **committed knowledge cache**

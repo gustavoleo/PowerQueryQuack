@@ -163,14 +163,12 @@ Each phase is independently shippable and test-gated. ✅ = done, 🔵 = in prog
 - `graph/cycles.py`: DFS cycle detection with chain, root cause, and resolution proposal. `graph.analyze(text)` ties it together; `AnalysisResult.is_convertible` is the **hard gate**.
 - **Exit met:** multi-query dependency-graph and circular-reference sample fixtures + unit tests pass (lexer, parser, splitter, graph, cycles). 48 tests, ruff clean.
 
-### Phase 3 — Deterministic conversion core  ⬜
-- Concept rules (goal §14): `SelectRows`→WHERE, `SelectColumns`→projection, rename→aliases,
-  `TransformColumnTypes`→CAST/TRY_CAST, `AddColumn`, `NestedJoin`→JOIN, `Group`→GROUP BY,
-  `Combine`→UNION ALL, `Distinct`, `Sort` (only when order matters), Pivot/Unpivot, FillDown/Up→windows.
-- Type mapping (goal §15), conservative casts. Connector isolation (goal §8).
-- Pipeline assembler: consolidate steps into clean CTEs; **never** temp tables/`SELECT *` in finals.
-- Per-target dialects: `duckdb` (default), `gizmosql`, `motherduck` + native readers (goal §10).
-- **Exit:** sample-based tests for each scenario in goal §25; a test asserts **no temp tables** ever appear.
+### Phase 3 — Deterministic conversion core  ✅
+- M expression translator (`convert/mexpr.py`): `each` predicates and derived-column expressions → SQL (columns incl. spaces, `if/then/else`→CASE, `&`→`||`, `= null`→`IS NULL`, mapped scalar functions); unmappable → `None` (flagged, never guessed).
+- Concept rules (`convert/rules/tables.py`, goal §14): `SelectRows`→WHERE, `SelectColumns`/`RemoveColumns`→projection/`EXCLUDE`, `RenameColumns`→aliases/`RENAME`, `TransformColumnTypes`→`TRY_CAST`, `AddColumn`, `Distinct`, `Sort`, `Group`→GROUP BY (`List.Sum`→SUM, `Table.RowCount`→COUNT(*)), `Combine`→UNION ALL, `NestedJoin`→JOIN (+Expand passthrough), `Buffer`/`PromoteHeaders` no-ops. Pivot/Unpivot/FillDown/Up → flagged unsupported for the Phase 5 LLM fallback.
+- Type mapping (§15) with conservative `TRY_CAST`; connector isolation (§8) via `convert/source.py` (native readers §10, DB-table mapping, query refs); per-target dialects (`convert/targets/`) with compatibility markers (§11-12).
+- Pipeline assembler (`convert/pipeline.py`): per-step CTE chains stitched across the dependency graph in topological order; circular references block generation; column tracking yields explicit final projections; **forbidden-construct guard** (no temp tables/procedural SQL).
+- **Exit met:** scenario tests for filter/select/rename/type-cast/add-column/distinct/sort/group/append/join/connector + a **live DuckDB execution** test + a **no-temp-table invariant** test. 65 tests, ruff clean.
 
 ### Phase 4 — Validation + confidence + report assembly  ⬜
 - `validate/engine.py`: static checks + optional live DuckDB execution (column count/names/types,

@@ -6,5 +6,17 @@ specified :mod:`pqquack.convert.types` type mapping.
 """
 
 from pqquack.convert import types
+from pqquack.convert.pipeline import (
+    ConversionResult,
+    convert_analysis,
+    convert_query,
+    convert_text,
+)
 
-__all__ = ["types"]
+__all__ = [
+    "types",
+    "ConversionResult",
+    "convert_analysis",
+    "convert_query",
+    "convert_text",
+]
