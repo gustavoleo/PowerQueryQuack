@@ -7,6 +7,8 @@ consistently and in both languages.
 
 from __future__ import annotations
 
+from pqquack.report.assemble import Report, build_report, convert_and_report
+
 # Ordered i18n keys for the 10-section conversion output (goal section 18).
 SECTION_KEYS: tuple[str, ...] = (
     "report.executive_summary",
@@ -21,4 +23,4 @@ SECTION_KEYS: tuple[str, ...] = (
     "report.feedback_request",
 )
 
-__all__ = ["SECTION_KEYS"]
+__all__ = ["SECTION_KEYS", "Report", "build_report", "convert_and_report"]

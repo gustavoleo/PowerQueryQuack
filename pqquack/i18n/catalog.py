@@ -29,6 +29,19 @@ _EN_US: dict[str, str] = {
     "validation.pass": "PASS",
     "validation.warning": "WARNING",
     "validation.fail": "FAIL",
+    "report.executive_summary": "Executive Summary",
+    "report.detected_target_runtime": "Detected Target Runtime",
+    "report.dependency_graph": "Dependency Graph",
+    "report.circular_reference_report": "Circular Reference Report",
+    "report.conversion_notes": "Conversion Notes",
+    "report.generated_sql": "Generated SQL",
+    "report.validation_report": "Validation Report",
+    "report.compatibility_notes": "Compatibility Notes",
+    "report.confidence_score": "Confidence Score",
+    "report.feedback_request": "Feedback Request",
+    "report.none": "None.",
+    "report.no_circular": "No circular references found.",
+    "report.not_specified_runtime": "Not specified, using safest DuckDB-compatible SQL",
 }
 
 _PT_BR: dict[str, str] = {
@@ -51,6 +64,19 @@ _PT_BR: dict[str, str] = {
     "validation.pass": "APROVADO",
     "validation.warning": "ATENÇÃO",
     "validation.fail": "FALHOU",
+    "report.executive_summary": "Resumo Executivo",
+    "report.detected_target_runtime": "Runtime de Destino Detectado",
+    "report.dependency_graph": "Grafo de Dependências",
+    "report.circular_reference_report": "Relatório de Referência Circular",
+    "report.conversion_notes": "Notas de Conversão",
+    "report.generated_sql": "SQL Gerado",
+    "report.validation_report": "Relatório de Validação",
+    "report.compatibility_notes": "Notas de Compatibilidade",
+    "report.confidence_score": "Pontuação de Confiança",
+    "report.feedback_request": "Solicitação de Feedback",
+    "report.none": "Nenhuma.",
+    "report.no_circular": "Nenhuma referência circular encontrada.",
+    "report.not_specified_runtime": "Não especificado, usando o SQL DuckDB mais seguro",
 }
 
 CATALOGS: dict[Language, dict[str, str]] = {

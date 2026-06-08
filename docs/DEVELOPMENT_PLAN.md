@@ -170,12 +170,11 @@ Each phase is independently shippable and test-gated. ✅ = done, 🔵 = in prog
 - Pipeline assembler (`convert/pipeline.py`): per-step CTE chains stitched across the dependency graph in topological order; circular references block generation; column tracking yields explicit final projections; **forbidden-construct guard** (no temp tables/procedural SQL).
 - **Exit met:** scenario tests for filter/select/rename/type-cast/add-column/distinct/sort/group/append/join/connector + a **live DuckDB execution** test + a **no-temp-table invariant** test. 65 tests, ruff clean.
 
-### Phase 4 — Validation + confidence + report assembly  ⬜
-- `validate/engine.py`: static checks + optional live DuckDB execution (column count/names/types,
-  joins, filters, aggregations, runtime compatibility). Report format per goal §16.
-- `confidence/score.py`: percentage + concrete reasons (goal §17); low confidence requests more info.
-- `report/assemble.py`: the 10-section output (goal §18) with compatibility markers (§11–12).
-- **Exit:** validation report + confidence emitted; failing validation never marked production-ready.
+### Phase 4 — Validation + confidence + report assembly  ✅
+- `validate/checks.py` + `validate/engine.py`: PASS/WARNING/FAIL checks (dependency graph, circular references, missing references, unsupported functions, forbidden constructs, column preservation, business-logic preservation, target compatibility) + optional live DuckDB execution with sample relations. Report renders the goal §16 format; `production_ready` is `False` on any FAIL.
+- `confidence/score.py`: justified percentage with concrete reasons (goal §17); circular → ~5%; low confidence (<70%) sets `needs_more_info` and requests sample data/schema.
+- `report/assemble.py`: the 10-section output (goal §18), bilingual (pt-BR/en-US), with `convert_and_report()` running analyze → convert → validate → score → assemble end to end.
+- **Exit met:** validation report + confidence emitted; failing validation never marked production-ready; live-execution check verified. 83 tests, ruff clean.
 
 ### Phase 5 — LLM fallback (Claude)  ⬜
 - `llm/client.py` using the `anthropic` SDK; small prompts seeded with *cached* knowledge (never full docs).

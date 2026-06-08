@@ -3,6 +3,8 @@
 Every conversion carries a justified confidence percentage with concrete reasons.
 Low confidence triggers a request for additional information instead of a
 confident-but-wrong answer.
-
-Phase 4 implements ``score``.
 """
+
+from pqquack.confidence.score import LOW_CONFIDENCE_THRESHOLD, ConfidenceScore, score
+
+__all__ = ["LOW_CONFIDENCE_THRESHOLD", "ConfidenceScore", "score"]

@@ -51,6 +51,8 @@ class ConversionResult:
     warnings: list[str] = field(default_factory=list)
     unsupported: list[str] = field(default_factory=list)
     markers: list[str] = field(default_factory=list)
+    # True when the final SELECT lists explicit columns (not a schema-preserving *).
+    final_projection_explicit: bool = True
 
     @property
     def success(self) -> bool:
@@ -162,6 +164,7 @@ def convert_query(
         notes=plan.notes,
         warnings=plan.warnings,
         unsupported=plan.unsupported,
+        final_projection_explicit=plan.columns is not None,
     )
 
 
@@ -249,6 +252,7 @@ def convert_analysis(
         notes=notes,
         warnings=warnings,
         unsupported=unsupported,
+        final_projection_explicit=final_columns is not None,
     )
 
 
