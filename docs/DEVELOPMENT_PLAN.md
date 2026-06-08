@@ -157,11 +157,11 @@ Each phase is independently shippable and test-gated. ✅ = done, 🔵 = in prog
 - Documented in `docs/conversion-rules.md`.
 - **Exit met:** knowledge JSON committed; tests assert key M functions/enums/access-libs and DuckDB conventions are present; extractors fall back safely on missing/unreadable assets. Regenerate via `python -m pqquack.knowledge.build`.
 
-### Phase 2 — M parser + dependency graph + circular detection  ⬜
-- Lexer/parser for the M subset we support → AST; `ingest` splits About exports into named queries.
-- `graph/build.py`: references, reuse, staging/fact/dim/lookup, dead/missing queries.
-- `graph/cycles.py`: circular chain, root cause, resolution proposal; **hard gate** before convert.
-- **Exit:** tests for multi-query dependency graph + circular detection (goal §25) pass.
+### Phase 2 — M parser + dependency graph + circular detection  ✅
+- M lexer (`parser/lexer.py`) + pragmatic parser (`parser/parser.py`) → AST of `let` steps with per-step references, invoked functions, and column names; `ingest.split_queries` splits section documents into named queries.
+- `graph/build.py`: reference resolution, missing-reference flagging, connector-acquisition marking via the knowledge layer, role classification (source/staging/fact/lookup/output/dead/intermediate), ASCII hierarchy rendering.
+- `graph/cycles.py`: DFS cycle detection with chain, root cause, and resolution proposal. `graph.analyze(text)` ties it together; `AnalysisResult.is_convertible` is the **hard gate**.
+- **Exit met:** multi-query dependency-graph and circular-reference sample fixtures + unit tests pass (lexer, parser, splitter, graph, cycles). 48 tests, ruff clean.
 
 ### Phase 3 — Deterministic conversion core  ⬜
 - Concept rules (goal §14): `SelectRows`→WHERE, `SelectColumns`→projection, rename→aliases,

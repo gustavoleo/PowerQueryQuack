@@ -53,6 +53,42 @@ uncertain constructs.
 3. **Validation before "production-ready".** Failing validation prevents the SQL
    from being presented as production-ready (goal section 16).
 
+## Dependency analysis (Phase 2)
+
+`pqquack.graph.analyze(text)` runs the full pre-conversion analysis:
+
+1. **Split** the document into named queries (`ingest.split_queries`) — section
+   documents (`shared Name = ...;`) or a single bare query.
+2. **Parse** each query (`parser.parse_query`) into `let` steps, extracting per
+   step the identifier references, invoked library functions, and column names.
+   The lexer makes this robust: strings, comments, dotted identifiers
+   (`Table.SelectRows`), quoted identifiers (`#"Customer Staging"`), bracketed
+   field access (`[Amount]`), and record-literal fields (`[Schema="dbo"]`) are
+   all distinguished so none are mistaken for query references.
+3. **Build** the cross-query graph (`graph.build_dependency_graph`): resolve
+   references, flag unresolved ones as *missing references*, and mark queries
+   using source-acquisition functions (`Sql.Database`, `Web.Contents`, …) via the
+   knowledge layer's access-library classification (connector isolation, §8).
+4. **Detect cycles** (`graph.find_cycles`): DFS back-edge detection yielding the
+   chain, root cause, and a resolution proposal. `AnalysisResult.is_convertible`
+   is `False` whenever a cycle exists — the hard gate before SQL generation.
+
+### Role classification (heuristic)
+
+| Role | Rule |
+|---|---|
+| `dead` | isolated: nothing references it and it references nothing |
+| `source` | references no other query (leaf) — or isolated but using a connector |
+| `output` | nothing references it, but it consumes other queries (final) |
+| `staging` | name contains "stag" |
+| `lookup` | referenced by ≥2 queries (reused dimension/lookup) |
+| `fact` | references ≥2 queries (combines inputs) |
+| `intermediate` | everything else |
+
+Missing-reference detection is conservative: unresolved free identifiers may
+occasionally include uncaptured parameters, so they are surfaced as *candidates*
+for the validation layer rather than hard errors.
+
 ## Deterministic-first + LLM fallback
 
 Cost control (goal section 23) drives the design:
