@@ -46,6 +46,19 @@ class Report:
             out.append("")
         return "\n".join(out).strip() + "\n"
 
+    def to_dict(self) -> dict:
+        """Structured form for the API / web UI."""
+        return {
+            "sections": [{"title": title, "body": body} for title, body in self.sections],
+            "markdown": self.render(),
+            "sql": self.conversion.sql if self.conversion else "",
+            "production_ready": self.production_ready,
+            "validation_overall": self.validation.overall.value if self.validation else None,
+            "confidence_percent": self.confidence.percent if self.confidence else None,
+            "needs_more_info": bool(self.confidence and self.confidence.needs_more_info),
+            "unsupported": list(self.conversion.unsupported) if self.conversion else [],
+        }
+
 
 def _feedback_block(language: Language) -> str:
     return (

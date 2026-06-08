@@ -183,10 +183,12 @@ Each phase is independently shippable and test-gated. ✅ = done, 🔵 = in prog
 - **Confirm before building:** model choice + budget (default Sonnet, escalate to Opus on low-confidence retry only). Consult the `claude-api` skill for current model IDs.
 - **Exit:** fallback covered by tests with the client mocked; budget guardrails enforced.
 
-### Phase 6 — Web MVP  ⬜
-- FastAPI endpoints: `POST /convert`, `POST /feedback`. Static UI with Upload / Settings
-  (language, target runtime, output mode) / Results (graph, report, SQL, validation, compat, confidence) / Feedback areas (goal §22).
-- **Exit:** end-to-end conversion runnable locally in the browser.
+### Phase 6 — Web MVP  ✅
+- FastAPI endpoints `POST /convert` (full analyze→convert→validate→score→report) and `POST /feedback`; static beta UI served at `/` with Upload (paste or file) / Settings (language, runtime) / Results (collapsible 10 sections + status badges) / Feedback (👍/👎/🛠) areas (goal §22).
+- `Report.to_dict()` returns structured sections + sql + production-ready + confidence for the UI.
+- **Exit met:** end-to-end conversion runnable in the browser (`pqquack serve`); verified against a live uvicorn server. 100 tests, ruff clean.
+
+> Built ahead of Phase 5 so real Power Query exports can be tested in-browser; the LLM fallback then slots in behind the already-flagged unsupported steps.
 
 ### Phase 7 — Feedback + human supervisor  ⬜
 - Feedback options 👍/👎/🛠 (goal §19); review-record schema + store (goal §20), anonymized by default.

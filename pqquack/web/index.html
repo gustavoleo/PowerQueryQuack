@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Power Query Quack 🦆</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
     <header>
@@ -13,31 +13,48 @@
     </header>
 
     <main>
-      <!-- Upload area (goal section 22). Wired to /convert in Phase 6. -->
       <section id="upload" aria-label="Upload">
-        <h2>Upload Power Query</h2>
-        <p class="todo">Phase 6: file upload (.pq/.m/.txt/.zip) and pasted text.</p>
+        <h2>1 · Power Query</h2>
+        <p class="hint">
+          Paste M code, a single <code>let … in …</code> query, or a section
+          document (<code>shared Name = …;</code>). Or load a
+          <code>.pq</code>/<code>.m</code>/<code>.txt</code> file.
+        </p>
+        <textarea id="source" spellcheck="false"
+          placeholder="let&#10;  Source = Csv.Document(File.Contents(&quot;sales.csv&quot;)),&#10;  Filtered = Table.SelectRows(Source, each [Amount] > 100)&#10;in Filtered"></textarea>
+        <input type="file" id="file" accept=".pq,.m,.txt" />
       </section>
 
-      <!-- Settings area: language, target runtime, output mode. -->
       <section id="settings" aria-label="Settings">
-        <h2>Settings</h2>
-        <p class="todo">Phase 6: populated from <code>/meta</code>.</p>
+        <h2>2 · Settings</h2>
+        <div class="settings-grid">
+          <label>Language
+            <select id="language"></select>
+          </label>
+          <label>Target runtime
+            <select id="runtime"></select>
+          </label>
+        </div>
+        <button id="convert">Convert →</button>
       </section>
 
-      <!-- Results area: graph, report, SQL, validation, compatibility, confidence. -->
-      <section id="results" aria-label="Results">
-        <h2>Results</h2>
-        <p class="todo">Phase 6: 10-section conversion output.</p>
+      <section id="results" aria-label="Results" hidden>
+        <h2>3 · Results</h2>
+        <div id="status-bar"></div>
+        <div id="report"></div>
       </section>
 
-      <!-- Feedback area (goal section 19). -->
-      <section id="feedback" aria-label="Feedback">
-        <h2>Was the conversion successful?</h2>
-        <p class="todo">👍 Correct &nbsp; 👎 Incorrect &nbsp; 🛠 Help Me Fix It</p>
+      <section id="feedback" aria-label="Feedback" hidden>
+        <h2 id="feedback-question">Was the conversion successful?</h2>
+        <div class="feedback-buttons">
+          <button data-verdict="correct">👍 Correct</button>
+          <button data-verdict="incorrect">👎 Incorrect</button>
+          <button data-verdict="needs_help">🛠 Help Me Fix It</button>
+        </div>
+        <p id="feedback-ack" hidden></p>
       </section>
     </main>
 
-    <script src="app.js"></script>
+    <script src="/static/app.js"></script>
   </body>
 </html>
